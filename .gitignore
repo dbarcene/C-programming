@@ -1,4 +1,5 @@
-# VIm undo files
+# Vim undo files
+.*.un~
 *.un~
 
 # Prerequisites
