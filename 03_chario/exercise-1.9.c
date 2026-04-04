@@ -25,7 +25,7 @@ int main() {
 		putchar(c);
 		previous = c;
 		c = getchar();
-		if (previous == ' ')
+		if ((previous == ' ') && (c == ' '))
 			c = getchar();
 	}
 }
