@@ -9,8 +9,6 @@
 /**
  * Excercise 1-9: Write a program to copy its input to ist output, replacing
  * each string of one or more blanks by a single blank
- * Example: one__two
- * one
  */
 
 #include <stdio.h>
@@ -18,14 +16,17 @@
 int main() {
 
 	int c;
-	int previous;
+	int previous = 'x';
 
 	c = getchar();
 	while (c != EOF) {
-		putchar(c);
-		previous = c;
-		c = getchar();
-		if ((previous == ' ') && (c == ' '))
+		if ((previous == ' ') && (c == ' ')) {
+			previous = c;
 			c = getchar();
+		} else {
+			previous = c;
+			putchar(c);
+			c = getchar();
+		}
 	}
 }
