@@ -43,7 +43,6 @@ int main() {
  *  parenthesis. c is a char, but chars in C are small integers so the
  *  operation is totally valid, '0' turns out to be the decimal
  *  representation in ASCII in base 10. numerals are represented starting
- *  from 48. For more info check an ASCII table of hex and decimal
- *  characters. You can also use 0x30 up to 0x39 to represent decimal numerals
- *  in hexagecimal notation.
+ *  from 48. You can also use 0x30 up to 0x39 to represent decimal numerals
+ *  in hexagecimal notation. For more information on ASCII execure 'man ascii'.
  */
