@@ -22,8 +22,8 @@ int main() {
 		ndigit[i] = 0;
 
 	while ((c = getchar()) != EOF) {
-		if (c >= '0' && c <= '9')
-			++ndigit[c - '0'];
+		if (c >= 0x30 && c <= 0x39)
+			++ndigit[c - 0x30]; //[0 - 9] --> hex[0x30 - 0x39]
 		else if (c == ' ' || c == '\n' || c == '\t')
 			++nwhite;
 		else
@@ -35,3 +35,15 @@ int main() {
 		printf(" %d", ndigit[i]);
 	printf(", white space = %d, other = %d\n", nwhite, nother);
 }
+
+/**
+ *  if (c >= '0' && c <= '9') checks if c is between 0 and 9, it it is then
+ *  ++ndigit[c-'0']; this is simmilar to a fancy indexing in python, where
+ *  [c -'0'] returns an index result of the operation inside the
+ *  parenthesis. c is a char, but chars in C are small integers so the
+ *  operation is totally valid, '0' turns out to be the decimal
+ *  representation in ASCII in base 10. numerals are represented starting
+ *  from 48. For more info check an ASCII table of hex and decimal
+ *  characters. You can also use 0x30 up to 0x39 to represent decimal numerals
+ *  in hexagecimal notation.
+ */
