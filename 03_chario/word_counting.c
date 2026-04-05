@@ -2,7 +2,7 @@
  * File              : word_counting.c
  * Author            : David Barcene <dbarcene@indicasat.org.pa>
  * Date              : 04.04.2026
- * Last Modified Date: 04.04.2026
+ * Last Modified Date: 05.04.2026
  * Last Modified By  : David Barcene <dbarcene@indicasat.org.pa>
  */
 
