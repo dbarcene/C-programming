@@ -2,7 +2,7 @@
  * File              : exercise-1.13.c
  * Author            : David Barcene <dbarcene@indicasat.org.pa>
  * Date              : 05.04.2026
- * Last Modified Date: 05.04.2026
+ * Last Modified Date: 06.04.2026
  * Last Modified By  : David Barcene <dbarcene@indicasat.org.pa>
  */
 
@@ -15,22 +15,40 @@
 #include <stdio.h>
 #define IN 1
 #define OUT 0
+#define MAX_LENGTH 25
 
 int main() {
-	int c, WORDS, CHARS, STATE;
+	int c, i, j, WORD_LENGTH, STATE;
+	int hist[MAX_LENGTH];
 
-	c = getchar();
-	WORDS = CHARS = 0;
+	for (int i = 0; i < MAX_LENGTH; ++i)
+		hist[i] = 0; // Initialize array
+
+	WORD_LENGTH = 0;
 	STATE = OUT;
-
-	while ((c = getchar()) != EOF) {
-		++CHARS;
-		if (c == '\n' || c == ' ' || c == '\t')
+	c = getchar();
+	while (c != EOF) {
+		if (c == ' ' || c == '\t' || c == '\n') {
+			if (STATE == IN && WORD_LENGTH < MAX_LENGTH) {
+				++hist[WORD_LENGTH];
+				WORD_LENGTH = 0;
+			}
 			STATE = OUT;
-		else if (STATE == OUT) {
+		} else {
 			STATE = IN;
-			++WORDS;
+			++WORD_LENGTH;
 		}
+		c = getchar();
 	}
-	printf("");
+
+	printf("WORD LENGHT COUNT\n");
+	printf("LENGHT | COUNT | GRAPH\n");
+	printf("------ | ----- | -----\n");
+	for (i = 0; i <= MAX_LENGTH; ++i) {
+		printf(" %2d | %3d  |", i, hist[i]);
+		for (j = 0; j < hist[i]; ++j) {
+			putchar('*');
+		}
+		printf("\n");
+	}
 }
