@@ -18,11 +18,13 @@ int grid[9][9] = {{5, 3, 0, 0, 7, 0, 0, 0, 0}, {6, 0, 0, 1, 9, 5, 0, 0, 0},
 /******************************************************************************/
 
 int possible(int x, int y, int n) {
+	// Check for n in row and column
 	for (int i = 0; i < 9; i++) {
 		if (grid[x][i] == n || grid[i][y] == n)
 			return false;
 	}
 
+	// Check for n inside square
 	int x0 = (x / 3) * 3;
 	int y0 = (y / 3) * 3;
 	for (int i = 0; i < 3; i++) {
