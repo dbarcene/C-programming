@@ -2,7 +2,7 @@
  * File              : exercise-1.16.c
  * Author            : David Barcene <dbarcene@indicasat.org.pa>
  * Date              : 06.04.2026
- * Last Modified Date: 06.04.2026
+ * Last Modified Date: 20.05.2026
  * Last Modified By  : David Barcene <dbarcene@indicasat.org.pa>
  */
 
@@ -15,7 +15,7 @@
 #include <stdio.h>
 #define MAXLINE 1000 /* maximum input line lenght */
 
-int getLine(char line[], int maxline);
+int getline(char line[], int maxline);
 void copy(char to[], char from[]);
 
 /* print the longest input line */
@@ -27,7 +27,7 @@ int main() {
 	char longest[MAXLINE]; /* longest line saved here */
 
 	max = 0;
-	while ((len = getLine(line, MAXLINE)) > 0) {
+	while ((len = getline(line, MAXLINE)) > 0) {
 		if (len > max) {
 			max = len;
 			copy(longest, line);
@@ -41,7 +41,7 @@ int main() {
 }
 
 /* getline: read a line into s, and return lenght */
-int getLine(char s[], int lim) {
+int getline(char s[], int lim) {
 
 	int c, i, count;
 
